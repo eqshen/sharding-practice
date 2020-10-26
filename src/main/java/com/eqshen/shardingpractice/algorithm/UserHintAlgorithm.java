@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Slf4j
 @NoArgsConstructor
-public class OrderHintAlgorithm implements HintShardingAlgorithm {
+public class UserHintAlgorithm implements HintShardingAlgorithm {
     @Override
     public Collection<String> doSharding(Collection collection, HintShardingValue hintShardingValue) {
         log.info("强制路由开始，表总数：{}，路由字段：{}",collection,hintShardingValue.getColumnName());
