@@ -26,6 +26,8 @@ public class UserInfo {
 
     private String address;
 
+    private String mobile;
+
     private LocalDateTime createTime;
 
     private LocalDateTime updateTime;

@@ -28,7 +28,7 @@ public class UserHintAlgorithm implements HintShardingAlgorithm {
             String suffix = targetName.substring(targetName.length() - 1);
             for (Object value : shardingValues) {
                 Integer v = new Integer(value+"");
-                if(v %2 == Integer.parseInt(suffix)){
+                if(v % 2 == Integer.parseInt(suffix)){
                     log.info("值：{} 被路由到表：{}",v,targetName);
                     result.add(targetName);
                 }
