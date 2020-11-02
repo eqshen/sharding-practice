@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @SpringBootTest
 @Slf4j
@@ -65,6 +66,21 @@ class ShardingPracticeApplicationTests {
             log.info("============done:{}",save);
             hintManager.close();
         }
+    }
+
+    @Test
+    void clearDataBase(){
+        List<UserInfo> userList = this.userService.list();
+        userList.forEach(item ->{
+            log.info("user:{}",item);
+            this.userService.removeById(item.getId());
+        });
+
+        List<OrderInfo> orderInfoList = this.orderService.list();
+        orderInfoList.forEach(order->{
+            log.info("order:{}",order);
+            this.orderService.removeById(order.getId());
+        });
     }
 
 }
